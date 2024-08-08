@@ -1,0 +1,18 @@
+def is_smith_number(n):
+  sum_digits = sum(int(x) for x in str(n))
+  sum_prime_factors = 0
+  i = 2
+  temp = n
+  while i <= temp:
+    if temp % i == 0:
+      sum_prime_factors += sum(int(x) for x in str(i))
+      temp //= i
+    else:
+      i += 1
+  return sum_digits == sum_prime_factors
+
+num = int(input("Enter a number: "))
+if is_smith_number(num):
+  print(num, "is a Smith number")
+else:
+  print(num, "is not a Smith number")
