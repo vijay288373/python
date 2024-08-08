@@ -1,0 +1,13 @@
+import string
+def missing_letters(sentence):
+    alphabet = set(string.ascii_lowercase)
+    missing = alphabet - set(sentence.lower())
+    return ''.join(sorted(missing))
+
+sentence = "The quick brown fox jumps over the  dog"
+missing = missing_letters(sentence)
+
+if missing:
+    print(f"Missing letters to form a pangram: {missing}")
+else:
+    print("The sentence is a pangram!")
