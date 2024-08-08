@@ -1,0 +1,9 @@
+def is_isogram(sentence):
+    clean_sentence = sentence.lower().replace(" ", "").replace("-", "")
+    return len(clean_sentence) == len(set(clean_sentence))
+ 
+sentence = "Six big devils from Japan quickly forgot how to waltz"
+if is_isogram(sentence):
+    print(f"{sentence} is an isogram.")
+else:
+    print(f"{sentence} is not an isogram.")
