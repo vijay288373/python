@@ -1,0 +1,24 @@
+# JSON Parser: Design a Python program that reads JSON data from a file and extracts specific information, such as nested dictionaries or lists, and presents it in a structured format.
+
+import json
+
+def parse_json_file(filename):
+  with open(filename, 'r') as f:
+    data = json.load(f)
+  return data
+
+def extract_information(data, keys):
+  extracted_data = {}
+  for key in keys:
+    if key in data:
+      extracted_data[key] = data[key]
+  return extracted_data
+
+# Example usage
+filename = 'data.json'  # Replace with your JSON file
+keys_to_extract = ['name', 'address', 'orders']
+
+data = parse_json_file(filename)
+extracted_data = extract_information(data, keys_to_extract)
+
+print(json.dumps(extracted_data, indent=2))
